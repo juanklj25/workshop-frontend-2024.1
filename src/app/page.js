@@ -23,9 +23,9 @@ export default function Home() {
       <div className="flex flex-row flex-wrap justify-around gap-10 py-8">
         {shows.map((show) => (
           <div key={show.id}>
-            <h2 className="flex flex-col gap-y-5 text-center">{show.name}</h2>
-            <h2 className="py-5 text-white font-bolt text-x1 rounded-xl text-center">{show.summary}</h2>
-            <img src={show.url} alt="show imagen"></img>
+            <img src={show.image.medium} alt="show imagen" />
+            <h2 className="flex flex-col gap-y-110 text-right">{show.name}</h2>
+            <h2 className="py-5  font-bolt text-x1 rounded-xl text-right">{show.summary}</h2>
           </div>
         ))}
       </div>
