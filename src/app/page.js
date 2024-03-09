@@ -1,13 +1,10 @@
 'use client'
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
+import Link from 'next/link'
 
 export default function Home() {
-  
-  const mainEstilizar ={
-    className : 'flex' ,
-    backgroundColor: 'black',
-  }
-  const [shows, setShows] = useState([]);
+  const [shows, setShows] = useState([])
+  const [search, setSearch] = useState("")
   
   useEffect (() => {
     fetch('https://api.tvmaze.com/shows')
@@ -16,12 +13,13 @@ export default function Home() {
     .catch((error) => console.log('error', error))
   }, [])
   
-  console.log(shows);
+  console.log(shows)
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-black"> 
+     <input type="text" className=" flex w-1/2 p-2 rounded-lg  font-bold text-lg text-black " onChange={(e) => setSearch(e.target.value)}/>
       <div className="flex flex-row flex-wrap justify-around gap-10 py-8">
-        {shows.map((show) => (
+        {shows.filter((show) => show.name.toLowerCase().includes(search.toLowerCase())).map((show) =>(
           <div key={show.id}>
             <img src={show.image.medium} alt="show imagen" />
             <h2 className="flex flex-col gap-y-110 text-right">{show.name}</h2>
