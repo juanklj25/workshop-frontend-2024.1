@@ -16,8 +16,8 @@ export default function Home() {
   console.log(shows)
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-black"> 
-     <input type="text" className=" flex w-1/2 p-2 rounded-lg  font-bold text-lg text-black " onChange={(e) => setSearch(e.target.value)}/>
+    <main className="flex min-h-screen flex-col justify-between p-24 bg-black"> 
+     <input type="text" className=" flex  w-80 p-2 rounded-lg  font-bold text-lg bg-black  text-white absolute top-1 right-1 border-2 border-s-white" onChange={(e) => setSearch(e.target.value)}/>
       <div className="flex flex-row flex-wrap justify-around gap-10 py-8">
         {shows.filter((show) => show.name.toLowerCase().includes(search.toLowerCase())).map((show) =>(
           <div key={show.id}>
