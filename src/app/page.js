@@ -22,8 +22,11 @@ export default function Home() {
         {shows.filter((show) => show.name.toLowerCase().includes(search.toLowerCase())).map((show) =>(
           <div key={show.id}>
             <img src={show.image.medium} alt="show imagen" />
-            <h2 className="flex flex-col gap-y-110 text-right ">{show.name}</h2>
-            <h2 className="py-5  font-bolt text-x1 rounded-xl text-right">{show.summary}</h2>
+            <h2 className="flex flex-col gap-y-110 text-right">Serie: {show.name}</h2>
+            <h2 className="py-5  font-bolt text-x1 rounded-xl text-right">sinops da serie:{show.summary}</h2>
+            <h2 className="flex flex-col gap-y-110 text-right">Classificação: {show.rating.average}</h2>
+            <h2 className="py-5  font-bolt text-x1 rounded-xl text-right">estreia: {show.premiered}</h2>
+            <h2 className="py-5  font-bolt text-x1 rounded-xl text-right">Final: {show.ended}</h2>
           </div>
         ))}
       </div>
